@@ -1,0 +1,129 @@
+{
+  "version": 2,
+  "projects": {
+    "food-for-you": {
+      "root": "apps/food-for-you",
+      "sourceRoot": "apps/food-for-you/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/food-for-you",
+            "index": "apps/food-for-you/src/index.html",
+            "main": "apps/food-for-you/src/main.tsx",
+            "polyfills": "apps/food-for-you/src/polyfills.ts",
+            "tsConfig": "apps/food-for-you/tsconfig.app.json",
+            "assets": [
+              "apps/food-for-you/src/favicon.ico",
+              "apps/food-for-you/src/assets"
+            ],
+            "styles": ["apps/food-for-you/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/food-for-you/src/environments/environment.ts",
+                  "with": "apps/food-for-you/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "food-for-you:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "food-for-you:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/food-for-you/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/food-for-you"],
+          "options": {
+            "jestConfig": "apps/food-for-you/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "food-for-you-e2e": {
+      "root": "apps/food-for-you-e2e",
+      "sourceRoot": "apps/food-for-you-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/food-for-you-e2e/cypress.json",
+            "devServerTarget": "food-for-you:serve",
+            "tsConfig": "apps/food-for-you-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "food-for-you:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/food-for-you-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "food-for-you"
+}
