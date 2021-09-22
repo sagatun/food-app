@@ -15,9 +15,9 @@ jobs:
 
     steps:
       - name: Checkout Code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v2
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
@@ -30,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Deploy to Google App Engine
-      - uses: google-github-actions/deploy-appengine@main
+        uses: google-github-actions/deploy-appengine@main
         with:
           credentials: ${{ secrets.gcp_credentials }}
