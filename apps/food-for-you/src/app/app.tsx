@@ -3,6 +3,9 @@ export function App() {
   return (
     <>
       <Header />
+      <div>
+        <h1>HELLO PÅ DO</h1>
+      </div>
     </>
   );
 }
