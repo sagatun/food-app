@@ -6,6 +6,8 @@ export function App() {
       <div>
         <h1>HELLO PÅ DO</h1>
         <h1>For svarte....</h1>
+        <h1>HELLO PÅ DO</h1>
+        <h1>For svarte....</h1>
       </div>
     </>
   );
