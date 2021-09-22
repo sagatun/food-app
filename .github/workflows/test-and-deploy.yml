@@ -24,13 +24,13 @@ jobs:
       - run: npm run build --if-present
       - run: npm run test
 
-deploy:
-  name: GAE Deploy
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Code
-    - uses: actions/checkout@v2
-    - name: Deploy to Google App Engine
-    - uses: google-github-actions/deploy-appengine@main
-      with:
-      credentials: ${{ secrets.gcp_credentials }}
+  deploy:
+    name: GAE Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+      - uses: actions/checkout@v2
+      - name: Deploy to Google App Engine
+      - uses: google-github-actions/deploy-appengine@main
+        with:
+        credentials: ${{ secrets.gcp_credentials }}
