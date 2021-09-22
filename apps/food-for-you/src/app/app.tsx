@@ -4,7 +4,7 @@ export function App() {
     <>
       <Header />
       <div>
-        <h1>HELLO APP</h1>
+        <h1>HELLO APPHELLO FROM OUTER SPACE</h1>
       </div>
     </>
   );
