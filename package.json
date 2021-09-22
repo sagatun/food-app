@@ -1,6 +1,9 @@
 {
   "name": "food-app",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "license": "MIT",
   "scripts": {
     "start": "nx serve",

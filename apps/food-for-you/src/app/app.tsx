@@ -3,6 +3,9 @@ export function App() {
   return (
     <>
       <Header />
+      <div>
+        <h1>HELLO APP</h1>
+      </div>
     </>
   );
 }
