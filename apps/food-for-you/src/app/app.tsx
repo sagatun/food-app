@@ -5,6 +5,7 @@ export function App() {
       <Header />
       <div>
         <h1>HELLO PÅ DO</h1>
+        <h1>For svarte....</h1>
       </div>
     </>
   );
