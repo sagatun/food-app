@@ -3,10 +3,6 @@ export function App() {
   return (
     <>
       <Header />
-      <Header />
-      <div>
-        <h1>HELLO APPHELLO FROM OUTER SPACE</h1>
-      </div>
     </>
   );
 }

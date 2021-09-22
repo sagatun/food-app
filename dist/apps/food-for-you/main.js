@@ -334,28 +334,12 @@ var _jsxFileName = "/Users/eriksagatun/projects/foodapp/food-app/apps/food-for-y
 
 function App() {
   return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["Fragment"], {
-    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])(_components_Layout_Header__WEBPACK_IMPORTED_MODULE_0__["default"], {}, void 0, false, {
+    children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])(_components_Layout_Header__WEBPACK_IMPORTED_MODULE_0__["default"], {}, void 0, false, {
       fileName: _jsxFileName,
       lineNumber: 5,
       columnNumber: 7
-    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])(_components_Layout_Header__WEBPACK_IMPORTED_MODULE_0__["default"], {}, void 0, false, {
-      fileName: _jsxFileName,
-      lineNumber: 6,
-      columnNumber: 7
-    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("div", {
-      children: /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("h1", {
-        children: "HELLO APPHELLO FROM OUTER SPACE"
-      }, void 0, false, {
-        fileName: _jsxFileName,
-        lineNumber: 8,
-        columnNumber: 9
-      }, this)
-    }, void 0, false, {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 7
-    }, this)]
-  }, void 0, true);
+    }, this)
+  }, void 0, false);
 }
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
