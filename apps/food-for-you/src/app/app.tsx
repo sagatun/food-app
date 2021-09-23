@@ -5,6 +5,7 @@ export function App() {
   return (
     <>
       <Header />
+      <p>hvorfor fungerer ikke dette?</p>
     </>
   );
 }
