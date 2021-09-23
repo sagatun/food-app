@@ -7,8 +7,11 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "start-all": "nest start ./apps/backend/src/main.ts && nx serve food-for-you",
     "build": "nx build",
-    "test": "nx test"
+    "build-all": "nx run-many --target=build --all",
+    "test": "nx test",
+    "test-all": "nx run-many --target-test --all"
   },
   "private": true,
   "dependencies": {

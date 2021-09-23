@@ -1,5 +1,5 @@
 runtime: nodejs16
-
+entrypoint: npm start backend
 handlers:
   - url: /
     static_files: dist/apps/food-for-you/index.html

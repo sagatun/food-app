@@ -21,9 +21,9 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
       - name: Run tests
-        run: npm test
+        run: npm run test-all --if-present
       - name: Build
-        run: npm run build --if-present
+        run: npm run build-all --if-present
       - name: Caching Dist Folder
         uses: actions/cache@v2
         with:
