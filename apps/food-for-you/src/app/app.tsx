@@ -8,6 +8,9 @@ export function App() {
       <div>
         <h1>Ny dag, nye muligheter</h1>
         <h2>Kanskje teste ut server/klient i dag... </h2>
+        <h1>
+          <i>BLIR DETTE OPPDATERT? FUNGERER CACHEN?</i>
+        </h1>
       </div>
     </>
   );
