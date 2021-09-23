@@ -4,6 +4,8 @@ handlers:
   - url: /
     static_files: dist/apps/food-for-you/index.html
     upload: dist/apps/food-for-you/index.html
-  - url: /(.*)$
-    static_files: dist/apps/food-for-you/\1
-    upload: dist/apps/food-for-you/(.*)
+
+  - url: /.*
+    script: auto
+    secure: always
+    redirect_http_response_code: 301
