@@ -7,6 +7,7 @@ export function App() {
       <Header />
       <div>
         <h1>Ny dag, nye muligheter</h1>
+        <h2>Kanskje teste ut server/klient i dag... </h2>
       </div>
     </>
   );
