@@ -11,19 +11,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
         with:
-          node-version: 16.x
-          cache: "npm"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Run tests
+        run: npm test
+      - name: Build
+        run: npm run build --if-present
       - name: Caching Dist Folder
         uses: actions/cache@v2
         with:
           path: ./dist
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          key: cache-dist-${{ github.sha }}
 
   deploy:
     needs: build
@@ -36,7 +41,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ./dist
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+          key: cache-dist-${{ github.sha }}
       - name: Deploy to Google App Engine
         uses: google-github-actions/deploy-appengine@main
         with:
