@@ -1,11 +1,5 @@
 import React from "react";
-
-interface Item {
-  id: string;
-  name: string;
-  amount: number;
-  price: number;
-}
+import { Item } from "../interfaces/Item";
 
 export interface CartContextInterface {
   items: Item[];
@@ -14,15 +8,8 @@ export interface CartContextInterface {
   removeItem: (id: string) => void;
 }
 
-const CartContext = React.createContext<CartContextInterface>({
-  items: [],
-  totalAmount: 0,
-  addItem: (item) => {
-    //do something
-  },
-  removeItem: (id) => {
-    //do somtething
-  },
-});
+const CartContext = React.createContext<CartContextInterface>(
+  {} as CartContextInterface
+);
 
 export default CartContext;

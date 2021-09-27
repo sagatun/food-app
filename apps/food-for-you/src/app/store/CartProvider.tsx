@@ -9,11 +9,11 @@ enum ActionKind {
   Remove = "REMOVE",
 }
 
-type Action = {
+interface Action {
   type: ActionKind;
   item?: Item;
   id?: string;
-};
+}
 
 const defaultCartState: { items: Item[]; totalAmount: number } = {
   items: [],
@@ -26,20 +26,55 @@ const cartReducer = (state: State, action: Action) => {
     item = { id: "", name: "", amount: -1, price: -1 },
     id,
   } = action;
+
   switch (type) {
     case ActionKind.Add: {
-      const updatedItems = state.items.concat(item);
       const updatedTotalAmount = state.totalAmount + item.price * item.amount;
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === item?.id
+      );
+      const existingCartItem = state.items[existingCartItemIndex];
+      let updatedItems: Item[] = [{ id: "", name: "", amount: -1, price: -1 }];
+
+      if (existingCartItem && item) {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + item.amount,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      } else if (item) {
+        updatedItems = state.items.concat(item);
+      }
+
       return { items: updatedItems, totalAmount: updatedTotalAmount };
     }
 
-    case ActionKind.Remove:
-      console.log(id);
-      break;
+    case ActionKind.Remove: {
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === id
+      );
+      const existingItem = state.items[existingCartItemIndex];
+      const updatedTotalAmount = state.totalAmount - existingItem.price;
+      let updatedItems;
+
+      if (existingItem.amount === 1 && item) {
+        updatedItems = state.items.filter((item) => item.id !== id);
+      } else {
+        const updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount - 1,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      }
+
+      return { items: updatedItems, totalAmount: updatedTotalAmount };
+    }
+
     default:
       return defaultCartState;
   }
-  return defaultCartState;
 };
 
 const CartProvider: React.FC = (props) => {

@@ -14,16 +14,11 @@ const MealItemForm: React.FC<MealItemFormProps> = (props) => {
   const submitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    const enteredAmount = amountInputRef.current
-      ? amountInputRef.current.value
-      : "";
-    const enteredAmountNumber = +enteredAmount;
+    const enteredAmountNumber = amountInputRef.current
+      ? +amountInputRef.current.value
+      : 0;
 
-    if (
-      enteredAmount.trim().length === 0 ||
-      enteredAmountNumber < 1 ||
-      enteredAmountNumber > 5
-    ) {
+    if (enteredAmountNumber < 1 || enteredAmountNumber > 5) {
       setAmountIsValid(false);
       return;
     }
