@@ -33,6 +33,7 @@ const AvailableMeals: React.FC = () => {
   const mealslist = DUMMY_MEALS.map((meal) => (
     <MealItem
       key={meal.id}
+      id={meal.id}
       name={meal.name}
       description={meal.description}
       price={meal.price}
@@ -43,9 +44,7 @@ const AvailableMeals: React.FC = () => {
     <section className={classes.meals}>
       <Card>
         <ul>
-          {DUMMY_MEALS.map((item) => (
-            <li>{mealslist}</li>
-          ))}
+          <li>{mealslist}</li>
         </ul>
       </Card>
     </section>

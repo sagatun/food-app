@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": { "@assets/*": ["./apps/food-for-you/src/assets/*"] }
+    "paths": {}
   },
   "exclude": ["node_modules", "tmp"]
 }
