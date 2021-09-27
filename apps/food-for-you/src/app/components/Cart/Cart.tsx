@@ -26,18 +26,14 @@ const Cart: React.FC<CartProps> = (props) => {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx.items.map((item) => (
-        <li>
-          {
-            <CartItem
-              key={item.id}
-              price={item.price}
-              name={item.name}
-              amount={item.amount}
-              onRemove={() => cartItemRemoveHandler(item.id)}
-              onAdd={() => cartItemAddHandler(item)}
-            />
-          }
-        </li>
+        <CartItem
+          key={item.id}
+          price={item.price}
+          name={item.name}
+          amount={item.amount}
+          onRemove={() => cartItemRemoveHandler(item.id)}
+          onAdd={() => cartItemAddHandler(item)}
+        />
       ))}
     </ul>
   );

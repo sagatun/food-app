@@ -31,19 +31,19 @@ const cartReducer = (state: State, action: Action) => {
     case ActionKind.Add: {
       const updatedTotalAmount = state.totalAmount + item.price * item.amount;
       const existingCartItemIndex = state.items.findIndex(
-        (item) => item.id === item?.id
+        (i) => i.id === item.id
       );
       const existingCartItem = state.items[existingCartItemIndex];
-      let updatedItems: Item[] = [{ id: "", name: "", amount: -1, price: -1 }];
+      let updatedItems: Item[];
 
-      if (existingCartItem && item) {
+      if (existingCartItem) {
         const updatedItem = {
           ...existingCartItem,
           amount: existingCartItem.amount + item.amount,
         };
         updatedItems = [...state.items];
         updatedItems[existingCartItemIndex] = updatedItem;
-      } else if (item) {
+      } else {
         updatedItems = state.items.concat(item);
       }
 
