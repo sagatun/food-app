@@ -42,7 +42,9 @@ jobs:
         with:
           path: ./dist
           key: cache-dist-${{ github.sha }}
+      - id: "auth"
+        uses: "google-github-actions/auth@v0.4.1"
+        with:
+          credentials_json: "${{ secrets.GCP_CREDENTIALS }}"
       - name: Deploy to Google App Engine
         uses: google-github-actions/deploy-appengine@main
-        with:
-          credentials: ${{ secrets.gcp_credentials }}
