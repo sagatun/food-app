@@ -20,6 +20,7 @@ const App: FC = () => {
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
+        <h1>HELLO TESTING</h1>
         <Meals />
       </main>
     </CartProvider>
